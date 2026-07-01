@@ -45,6 +45,27 @@ public:
 	UFUNCTION()
 	virtual void OnRep_ActionPoints(const FGameplayAttributeData& OldActionPoints);
 
+	UPROPERTY(BlueprintReadOnly, Category = "Attributes", ReplicatedUsing = OnRep_MaxHealthPoints)
+	FGameplayAttributeData MaxHealthPoints;
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, MaxHealthPoints)
+
+	UFUNCTION()
+	virtual void OnRep_MaxHealthPoints(const FGameplayAttributeData& OldMaxHealthPoints);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Attributes", ReplicatedUsing = OnRep_MaxManaPoints)
+	FGameplayAttributeData MaxManaPoints;
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, MaxManaPoints)
+
+	UFUNCTION()
+	virtual void OnRep_MaxManaPoints(const FGameplayAttributeData& OldMaxManaPoints);
+
+	UPROPERTY(BlueprintReadOnly, Category = "Attributes", ReplicatedUsing = OnRep_MaxActionPoints)
+	FGameplayAttributeData MaxActionPoints;
+	ATTRIBUTE_ACCESSORS(UCharacterAttributeSet, MaxActionPoints)
+
+	UFUNCTION()
+	virtual void OnRep_MaxActionPoints(const FGameplayAttributeData& OldMaxActionPoints);
+
 	// Обязательная функция для мультиплеера
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 };
