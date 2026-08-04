@@ -37,9 +37,16 @@ void ACharacterBase::Tick(float DeltaTime)
 }
 
 // Called to bind functionality to input
+
 void ACharacterBase::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	// This guarantees initialization for the Local Player on their own machine.
+	if (AbilitySystemComponent)
+	{
+		AbilitySystemComponent->InitAbilityActorInfo(this, this);
+	}
 
 }
 
